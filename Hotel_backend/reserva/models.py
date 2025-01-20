@@ -16,7 +16,7 @@ class Habitacion(models.Model):
     precio = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
-        return f"Habitación {self.numero} - {self.tipo}"
+        return f"Habitación {self.numero} - ({self.tipo})"
 
 class Reserva(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.RESTRICT)
@@ -25,4 +25,4 @@ class Reserva(models.Model):
     fecha_salida = models.DateField()
 
     def __str__(self):
-        return f"Reserva de {self.cliente.nombre} en habitación {self.habitacion.numero}"
+        return f"Reserva {self.id} en habitación {self.habitacion.numero}"
